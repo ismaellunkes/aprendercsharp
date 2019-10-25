@@ -7,7 +7,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         { 
 
-         /*   string numeroCC;
+            string numeroCC;
             string nomeTitular;
             double saldoInicial;
             string option;
@@ -77,9 +77,9 @@ namespace ConsoleApp1
                 option = Console.ReadLine();
             }                                    
 
-        }*/
+        }
 
-           ForkGame game1 = new ForkGame();
+         /*  ForkGame game1 = new ForkGame();
             int f = 1;
             String palavraSorteada;
             while (f == 1)

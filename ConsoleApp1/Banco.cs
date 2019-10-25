@@ -8,6 +8,7 @@ public class Conta
     public string NomeTitular { get; set; }
     public double SaldoInicial { get; }
     public double SaldoAtualizado { get; set; }
+    public double Taxa { get; private set; }
 
     private ArrayList movimentos;
    
@@ -18,6 +19,7 @@ public class Conta
         this.NomeTitular = nomeTitular;
         this.SaldoInicial = saldoInicial;
         this.SaldoAtualizado = saldoInicial;
+        this.Taxa = -5f;
         this.movimentos = new ArrayList();
     }
 
@@ -25,6 +27,12 @@ public class Conta
     {
         this.SaldoAtualizado += valorMovimento;
         GerarMovimento(valorMovimento);
+
+        if (valorMovimento < 0)
+        {
+            GerarMovimento(Taxa);
+        }
+
     }
 
     private void GerarMovimento(double valorMovimento)
