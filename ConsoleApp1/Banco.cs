@@ -4,13 +4,13 @@ using System.Collections;
 public class Conta
 {
 
-    public string NumConta { get; }
+    public string NumConta { get; private set; }
     public string NomeTitular { get; set; }
-    public double SaldoInicial { get; }
+    public double SaldoInicial { get; private set; }
     public double SaldoAtualizado { get; set; }
     public double Taxa { get; private set; }
 
-    private ArrayList movimentos;
+    private ArrayList Movimentos;
    
 
     public Conta(string numConta, string nomeTitular, double saldoInicial)
@@ -20,7 +20,7 @@ public class Conta
         this.SaldoInicial = saldoInicial;
         this.SaldoAtualizado = saldoInicial;
         this.Taxa = -5f;
-        this.movimentos = new ArrayList();
+        this.Movimentos = new ArrayList();
     }
 
     public void AtualizarSaldo(double valorMovimento)
@@ -37,14 +37,14 @@ public class Conta
 
     private void GerarMovimento(double valorMovimento)
     {
-        movimentos.Add(valorMovimento);
+        Movimentos.Add(valorMovimento);
     }
 
     public void GerarExtrato()
     {
 
         Console.WriteLine("\n\n\n*******  Extrato de movimentações *******\n");
-        foreach (double valor in movimentos)
+        foreach (double valor in Movimentos)
         {            
             Console.WriteLine(valor>0? "                 R$ " + valor + " (C)" : "                 R$ " + valor*-1 + " (D)");            
         }
