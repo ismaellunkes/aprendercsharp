@@ -1,73 +1,174 @@
 ﻿using System;
-using System.Globalization;
 
 namespace ConsoleApp1
 {
     class Program
     {
-
         static void Main(string[] args)
-        {
+        { 
 
+         /*   string numeroCC;
+            string nomeTitular;
+            double saldoInicial;
+            string option;
 
-            Console.WriteLine("Digite um número (0 encerra): ");
-            double x = double.Parse(Console.ReadLine());
+            Console.WriteLine("Informe os dados solicitados: ");
+            Console.Write("Informe o número da conta >>>>  ");
+            numeroCC = Console.ReadLine();
+            Console.Write("Informe o titular da conta >>>>  ");
+            nomeTitular = Console.ReadLine();
 
-            while (x > 0)
+            Console.Write("Informe se terá depósito incial >>> (S) ou (N)  ");
+            if (Console.ReadLine() == "S")
             {
-
-                Console.WriteLine("Escolha o calculo desejado: ");
-                Console.WriteLine("1 - RAIZ QUADRADA");
-                Console.WriteLine("2 - POTENCIAÇÃO");
-                Console.WriteLine("3 - DIVISÃO ");
-                Console.WriteLine("4 - SOMA");
-                Console.WriteLine("5 - MULTIPLICAÇÃO");
-                Console.WriteLine("6 - SUBTRAÇÃO");
-                Console.WriteLine("T - TODOS");
-
-                char option = char.Parse(Console.ReadLine());
-
-                if (option == 'T' || option == '1')
-                {
-                    Console.WriteLine("Raiz Quadrada >>> " + Math.Sqrt(x));
-                }
-                if (option == 'T' || option == '2')
-                {
-                    Console.WriteLine("Digite a potência: ");
-                    Console.WriteLine("Potenciação   >>> " + Math.Pow(float.Parse(Console.ReadLine()), x));
-                }
-                if (option == 'T' || option == '3')
-                {
-                    Console.WriteLine("Digite o valor a ser dividido: ");
-                    Console.WriteLine("Divisão >>> " + x / float.Parse(Console.ReadLine()));
-                }
-                if (option == 'T' || option == '4')
-                {
-                    Console.WriteLine("Digite o valor a ser somado: ");
-                    Console.WriteLine("Soma >>> " + (x + float.Parse(Console.ReadLine())));
-                }
-                if (option == 'T' || option == '5')
-                {
-                    Console.WriteLine("Digite o valor a ser multiplicado: ");
-                    Console.WriteLine("Soma >>> " + (x * float.Parse(Console.ReadLine())));
-                }
-                if (option == 'T' || option == '6')
-                {
-                    Console.WriteLine("Digite o valor a ser subtraído: ");
-                    Console.WriteLine("Soma >>> " + (x - float.Parse(Console.ReadLine())));
-                }
-
-                Console.WriteLine("     ");
-                Console.WriteLine("     ");
-                Console.WriteLine("*****");
-                Console.WriteLine("     ");                
-                Console.WriteLine("Digite um número (0 encerra): ");
-                x = double.Parse(Console.ReadLine());
+                Console.Write("Informe o valor >>> ");
+                saldoInicial = double.Parse(Console.ReadLine());
+            }
+            else
+            {
+                saldoInicial = 0;
             }
 
-            Console.WriteLine("******  THANK'S BYE BYE   ********");
-            Console.Read();
+            Conta conta = new Conta(numeroCC, nomeTitular, saldoInicial);            
 
+            Console.WriteLine("Informe a operação: ");
+            Console.WriteLine("1 - Saque ");
+            Console.WriteLine("2 - Depósito ");
+            Console.WriteLine("3 - Consulta de saldo ");
+            Console.WriteLine("4 - Extrato ");
+            Console.WriteLine("5 - Resumo da conta ");
+            Console.WriteLine("6 - Sair ");
+
+            option = Console.ReadLine();
+
+            while (option != "6")
+            {
+                if (option == "1")
+                {
+                    Console.WriteLine("Informe o valor do saque >>>> ");
+                    conta.AtualizarSaldo(double.Parse(Console.ReadLine()) * -1);
+                }
+                if (option == "2")
+                {
+                    Console.WriteLine("Informe o valor do depósito >>>> ");
+                    conta.AtualizarSaldo(double.Parse(Console.ReadLine()));
+                }
+                if (option == "3")
+                {
+                    Console.WriteLine("Saldo Atualizado >>>> " + conta.SaldoAtualizado);
+                }
+                if (option == "4")
+                {                    
+                    conta.GerarExtrato();                    
+                }
+                
+                if (option == "5")
+                {
+                    Console.WriteLine(conta.toString());
+                }
+                Console.WriteLine("\n\n\n Informe a operação: ");
+                Console.WriteLine("1 - Saque ");
+                Console.WriteLine("2 - Depósito ");
+                Console.WriteLine("3 - Consulta de saldo ");
+                Console.WriteLine("4 - Extrato ");
+                Console.WriteLine("5 - Resumo da conta ");
+                Console.WriteLine("6 - Sair ");
+
+                option = Console.ReadLine();
+            }                                    
+
+        }*/
+
+           ForkGame game1 = new ForkGame();
+            int f = 1;
+            String palavraSorteada;
+            while (f == 1)
+            {
+                Console.WriteLine("");
+                palavraSorteada = game1.SortearPalavra();
+                Console.WriteLine(game1.MostrarCaracteres(palavraSorteada));
+                Console.WriteLine("  ");
+                Console.WriteLine("  ");
+                int x = 5;
+                char letra;
+
+                Console.WriteLine("Você tem " + x + " chances!");
+                Console.WriteLine("  ");
+                while (x > 0)
+                {
+                    Console.Write("DÊ seu palpite...>>>  ");
+                    letra = char.Parse(Console.ReadLine());
+                    if (game1.ExisteLetra(palavraSorteada, letra))
+                    {
+                        Console.WriteLine("CORRETO!!!");
+                        Console.WriteLine("  ");
+                        Console.WriteLine("  ");
+                    }
+                    else
+                    {
+                        x--;
+                        Console.WriteLine("ERRROOOUU!!  ");
+                        Console.WriteLine("  ");
+                        Console.WriteLine("  ");
+                        Console.WriteLine("Você tem " + x + " chance(s)!");
+                        Console.WriteLine("  ");                     
+                        
+                    }   
+                    
+                }
+
+                Console.WriteLine("  ");
+                Console.WriteLine("  ");
+                Console.WriteLine("  ");
+                Console.WriteLine("  ");
+                Console.WriteLine("***** GAME OVER *******");
+                Console.WriteLine("  ");
+                Console.WriteLine("  ");
+                Console.WriteLine("  ");
+                Console.WriteLine("Digite 1 para continuar!");
+                f = int.Parse(Console.ReadLine());
+            }           
         }
+
+
+
+        /** char op, power = '1';
+         double x, y;
+
+         Console.WriteLine("CALCULATOR OF THE CHUCK NORRIS");
+
+         while (power.Equals('1'))
+         {
+             x = double.Parse(Console.ReadLine());
+             op = char.Parse(Console.ReadLine());
+             y = double.Parse(Console.ReadLine());
+             Calculadora.Calcular(x, op, y);
+             Console.WriteLine("---");
+             Console.WriteLine(Calculadora.resultado);
+             Console.WriteLine("DIGITE 1 CONTINUAR");
+             power = char.Parse(Console.ReadLine());
+
+         }
+
+
+         /**
+             int qtde;
+
+             Produto produto = new Produto();
+             produto.nome = Console.ReadLine();
+             produto.preco = double.Parse(Console.ReadLine());
+             produto.quantidade = int.Parse(Console.ReadLine());
+
+             Console.WriteLine(produto);
+
+             Console.Write("Digite a quantidade a ser adicionada: ");
+             qtde = int.Parse(Console.ReadLine());
+             produto.AdicionarProduto(qtde);
+
+             Console.WriteLine("Produto atualizado ");
+             Console.Write(produto);
+         */
+
     }
 }
+
