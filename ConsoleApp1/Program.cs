@@ -9,6 +9,8 @@ namespace ConsoleApp1
 
             int linhas, colunas;
 
+            Console.WriteLine("\n\n******* BEM VINDO AO PROGRAMA DE MATRIZES **********\n\n");
+
             Console.WriteLine("Digite as dimensões da MATRIZ: (Linhas X Colunas) ");
             Console.Write("LINHAS  >>>>> ");
             linhas = int.Parse(Console.ReadLine());
@@ -69,6 +71,7 @@ namespace ConsoleApp1
 
         static void AlgBanco()
         {
+            Console.WriteLine("\n\n******* BEM VINDO AO PROGRAMA DE BANCO **********\n\n");
 
             string numeroCC;
             string nomeTitular;
@@ -143,6 +146,9 @@ namespace ConsoleApp1
 
         static void AlgForkGame()
         {
+
+            Console.WriteLine("\n\n******* BEM VINDO AO PROGRAMA DE FORK GAME **********\n\n");
+
             ForkGame game1 = new ForkGame();
             int f = 1;
             String palavraSorteada;
@@ -196,6 +202,10 @@ namespace ConsoleApp1
 
         static void AlgCalcChuckNorris()
         {
+
+            Console.WriteLine("\n\n******* BEM VINDO AO PROGRAMA DE CALCULADORA **********\n\n");
+
+
             char op, power = '1';
             double x, y;
 
@@ -217,6 +227,10 @@ namespace ConsoleApp1
 
         static void AlgProdutos()
         {
+
+            Console.WriteLine("\n\n******* BEM VINDO AO PROGRAMA DE PRODUTOS **********\n\n");
+
+
             int qtde;
 
             Produto produto = new Produto();
@@ -239,7 +253,7 @@ namespace ConsoleApp1
 
             int option;
 
-            Console.WriteLine("Escolha o programa a ser executado: \n1 - Matrizes \n" +
+            Console.WriteLine("Escolha o programa a ser executado: \n1 - Matrizes" +
                 "\n2 - Banco\n3 - ForkGame\n4 - Calculadora\n5 - Produtos\n6 - Encerra");
 
             option = int.Parse(Console.ReadLine());
