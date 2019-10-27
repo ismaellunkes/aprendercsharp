@@ -35,19 +35,23 @@ public class Cursos
 
     public HashSet<int> AlunosContidos(HashSet<int> CursoX, HashSet<int> CursoY)
     {
-        if (CursoX.Count < 1 || CursoY.Count < 1)
+        HashSet<int> CursoXT = CursoX;
+        HashSet<int> CursoYT = CursoY;
+
+        if (CursoXT.Count < 1 || CursoYT.Count < 1)
         {
             Console.WriteLine("\nUm dos cursos não possui alunos cadastrados!");
         }
-        CursoX.IntersectWith(CursoY);
-        return CursoX;
+        CursoXT.IntersectWith(CursoYT);
+        return CursoXT;
     }
 
     public int TotalAlunos()
     {
-        A.UnionWith(B);
-        A.UnionWith(C);
-        return A.Count;
+        HashSet<int> CursoTemp = A;
+        CursoTemp.UnionWith(B);
+        CursoTemp.UnionWith(C);
+        return CursoTemp.Count;
     }
 
     public void RelatorioAlunos()
@@ -68,7 +72,7 @@ public class Cursos
             foreach (int item in B)
             {
                 Console.Write(item + " ");
-            }
+            }           
         }
 
         if (C.Count > 0)

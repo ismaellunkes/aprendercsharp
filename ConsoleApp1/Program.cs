@@ -255,16 +255,16 @@ namespace ConsoleApp1
             Cursos cursos = new Cursos();
 
             Console.Write("Informe a quantidade cursos: (Máximo 3 cursos)>>>> ");
-            int QtdeCursos = int.Parse(Console.ReadLine());            
+            int QtdeCursos = int.Parse(Console.ReadLine());
 
             if (QtdeCursos <= 3 && QtdeCursos > 0)
             {
                 for (int i = 0; i < QtdeCursos; i++)
                 {
-                    Console.Write("Informe os quantidade de alunos do curso " + i + " >>>>  ");
+                    Console.Write("\nInforme os quantidade de alunos do curso " + i + " >>>>  ");
                     int QtdeAlunos = int.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Informe os códigos dos alunos do curso " );
+                    Console.WriteLine("Informe os códigos dos alunos do curso ");
                     for (int x = 0; x < QtdeAlunos; x++)
                     {
                         cursos.AdicionarAlunos(int.Parse(Console.ReadLine()), i);
@@ -285,26 +285,43 @@ namespace ConsoleApp1
                     Console.WriteLine("9 - Encerrar");
                     Console.Write(">>>>> ");
 
+                    /* TODO: 
+                     * Relatorio de alunos que estão em apenas 1 curso
+                     * 
+                     */
+
 
                     option = int.Parse(Console.ReadLine());
 
                     if (option == 1)
                     {
-                        Console.WriteLine(cursos.AlunosContidos(cursos.A, cursos.B));
+                        Console.Write("\nAlunos do curso 0 contidos no curso 1 >>>> ");
+                        foreach (var item in cursos.AlunosContidos(cursos.A, cursos.B))
+                        {
+                            Console.Write(" " + item);
+                        }
                     }
 
                     if (option == 2)
                     {
-                        Console.WriteLine(cursos.AlunosContidos(cursos.A, cursos.C));
+                        Console.Write("\nAlunos do curso 0 contidos no curso 2 >>>> ");
+                        foreach (var item in cursos.AlunosContidos(cursos.A, cursos.C))
+                        {
+                            Console.Write(" " + item);
+                        }
                     }
 
                     if (option == 3)
                     {
-                        Console.WriteLine(cursos.AlunosContidos(cursos.B, cursos.C));
+                        Console.Write("\nAlunos do curso 1 contidos no curso 2 >>>> ");
+                        foreach (var item in cursos.AlunosContidos(cursos.B, cursos.C))
+                        {
+                            Console.Write(" " + item);
+                        }
                     }
                     if (option == 4)
                     {
-                        Console.WriteLine("Total de alunos únicos >>>> " + cursos.TotalAlunos());
+                        Console.WriteLine("\nTotal de alunos únicos >>>> " + cursos.TotalAlunos());
                     }
                     if (option == 5)
                     {
@@ -315,7 +332,7 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine("DESCULPE: Devido a aplicabilidade dos conjuntos o número máximo é 3 cursos!");
+                Console.WriteLine("DESCULPE: Devido a aplicabilidade dos conjuntos neste caso, o número máximo é 3 cursos!");
             }
 
         }
