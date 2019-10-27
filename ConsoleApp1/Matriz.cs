@@ -42,4 +42,8 @@ public class Matriz
 
     }
 
+    /// Achar os valores da diagonal 1,1 2,2 3,3
+    /// Achar os valores vizinhos de determinado valor
+    /// 
+
 }

@@ -3,7 +3,7 @@
 namespace ConsoleApp1
 {
     class Program
-    {        
+    {
         static void AlgMatrizes()
         {
 
@@ -248,17 +248,89 @@ namespace ConsoleApp1
             Console.Write(produto);
         }
 
+        static void AlgCursos()
+        {
+            Console.WriteLine("\n\n******* BEM VINDO AO PROGRAMA DE CURSOS **********\n\n");
+
+            Cursos cursos = new Cursos();
+
+            Console.Write("Informe a quantidade cursos: (Máximo 3 cursos)>>>> ");
+            int QtdeCursos = int.Parse(Console.ReadLine());            
+
+            if (QtdeCursos <= 3 && QtdeCursos > 0)
+            {
+                for (int i = 0; i < QtdeCursos; i++)
+                {
+                    Console.Write("Informe os quantidade de alunos do curso " + i + " >>>>  ");
+                    int QtdeAlunos = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Informe os códigos dos alunos do curso " );
+                    for (int x = 0; x < QtdeAlunos; x++)
+                    {
+                        cursos.AdicionarAlunos(int.Parse(Console.ReadLine()), i);
+                    }
+                }
+
+                int option = 0;
+
+                while (option != 9)
+                {
+
+                    Console.WriteLine("\nRelatórios disponíveis: (Digite a opção desejada)");
+                    Console.WriteLine("1 - Alunos do curso 0 que também estão em 1");
+                    Console.WriteLine("2 - Alunos do curso 0 que também estão em 2");
+                    Console.WriteLine("3 - Alunos do curso 1 que também estão em 2");
+                    Console.WriteLine("4 - Quantidade de alunos únicos");
+                    Console.WriteLine("5 - Relatório de Alunos");
+                    Console.WriteLine("9 - Encerrar");
+                    Console.Write(">>>>> ");
+
+
+                    option = int.Parse(Console.ReadLine());
+
+                    if (option == 1)
+                    {
+                        Console.WriteLine(cursos.AlunosContidos(cursos.A, cursos.B));
+                    }
+
+                    if (option == 2)
+                    {
+                        Console.WriteLine(cursos.AlunosContidos(cursos.A, cursos.C));
+                    }
+
+                    if (option == 3)
+                    {
+                        Console.WriteLine(cursos.AlunosContidos(cursos.B, cursos.C));
+                    }
+                    if (option == 4)
+                    {
+                        Console.WriteLine("Total de alunos únicos >>>> " + cursos.TotalAlunos());
+                    }
+                    if (option == 5)
+                    {
+                        cursos.RelatorioAlunos();
+                    }
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("DESCULPE: Devido a aplicabilidade dos conjuntos o número máximo é 3 cursos!");
+            }
+
+        }
+
         static void Main(string[] args)
         {
 
             int option;
 
             Console.WriteLine("Escolha o programa a ser executado: \n1 - Matrizes" +
-                "\n2 - Banco\n3 - ForkGame\n4 - Calculadora\n5 - Produtos\n6 - Encerra");
+                "\n2 - Banco\n3 - ForkGame\n4 - Calculadora\n5 - Produtos\n6 - Cursos (Conjuntos)\n7 - Encerra");
 
             option = int.Parse(Console.ReadLine());
 
-            while (option != 6)
+            while (option != 7)
             {
                 if (option == 1)
                 {
@@ -279,6 +351,10 @@ namespace ConsoleApp1
                 if (option == 5)
                 {
                     AlgProdutos();
+                }
+                if (option == 6)
+                {
+                    AlgCursos();
                 }
             }
 
