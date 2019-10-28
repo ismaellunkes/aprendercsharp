@@ -340,7 +340,11 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
 
+            DateTime dateTime = DateTime.Now;
+
             int option;
+
+            Console.WriteLine("********** "+dateTime.ToLongDateString()+"  **************");
 
             Console.WriteLine("Escolha o programa a ser executado: \n1 - Matrizes" +
                 "\n2 - Banco\n3 - ForkGame\n4 - Calculadora\n5 - Produtos\n6 - Cursos (Conjuntos)\n7 - Encerra");
